@@ -1,7 +1,12 @@
 <script lang="ts">
-	import { compileToJs } from "./utils";
+    import Router from 'svelte-spa-router' 
+    import Home from './Home.svelte';
+    import Profile from './Profile.svelte';
+    const routes = {
+      '/': Home,
+      '/profile': Profile,
+    };
 	let name: string = "world";
-	compileToJs(2);
 </script>
 
 <style lang="scss">
@@ -31,4 +36,9 @@
 		<a href="https://svelte.dev/tutorial">Svelte tutorial</a>
 		to learn how to build Svelte apps.
 	</p>
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/profile">Profile</a></li>
+  </ul>
+    <Router {routes} />
 </main>
